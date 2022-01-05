@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Create dynamic table in JavaScript</title>
+    <style>
+       
+      .input{
+          border:none;
+          font-size:10px;
+      }
+      .input:focus{
+          outline:none;
+      }
+    </style>
+ 
+</head>
+<body>
+    <h2 style="text-align:left">Create dynamic table in JavaScript</h2>
+    <input type="number" id='rows' placeholder="Enter rows">
+    <input type="number" id='cols' placeholder="Enter cols">
+    <button id='fetch'>Create</button>
+    <p><small style='color:lightgray'>Note: If you leave the values blank, 10x10 table will be created by default.</small></p>
+    <div id='container'></div>
+    <script type="text/javascript">
+      document.getElementById('fetch').onclick=function(){
+          var rows=document.getElementById('rows').value
+          var cols=document.getElementById('cols').value
+          if(rows=="" || rows==null)
+          rows=10
+          if(cols=="" || cols==null)
+          cols=10
+          var output='<table border="2" cellspacing="1" cellpadding="8" class="table">'
+          function createTable(rows,cols){
+              for(var i=1;i<=rows;i++){
+                  output=output+'<tr>'
+                  for(var j=1;j<=cols;j++){
+                      output=output+'<th>'+'<input class="input" type="text" placeholder="input data">'+'</td>'
+                  }
+                  output=output+'</tr>'
+              }
+              output=output+'</table>'
+              document.getElementById('container').innerHTML=output    
+         }
+         createTable(rows,cols)
+      }
+    </script>
+</body>
+</html>
