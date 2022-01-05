@@ -4,7 +4,7 @@ fetch('https://api.spacexdata.com/v4/launches')
 	console.log(json);
 
 let x=document.getElementById("table");
-for(i=0; i<json.length; i++){
+for(i=0; i<json.length; i+){
  var row=x.insertRow(i);
  var cell0 =row.insertCell(0);
   var cell1 =row.insertCell(1);
